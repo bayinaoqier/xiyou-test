@@ -3,259 +3,397 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>你是西游记里的哪一位 · 趣味测试</title>
+<title>测测你更像《西游记》里的谁？· 趣味测试</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",serif;color:#2b2118;display:flex;justify-content:center;padding:26px 14px 44px;min-height:100vh;background:radial-gradient(620px 420px at 88% -6%,rgba(212,175,55,.28),rgba(212,175,55,0) 62%),radial-gradient(760px 520px at -12% 104%,rgba(58,92,150,.5),rgba(58,92,150,0) 60%),linear-gradient(165deg,#16233f,#0e1a33 55%,#0a1428)}
-.wrap{width:100%;max-width:480px}
-@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-.card{background:#fffdf6;border:2px solid #d4af37;border-radius:28px;padding:34px 26px 30px;box-shadow:0 24px 60px rgba(0,0,0,.45),0 2px 8px rgba(212,175,55,.25);margin-top:16px;animation:fadeUp .45s ease both}
-.hidden{display:none}
-.hero{width:94px;height:94px;margin:0 auto 18px;background:linear-gradient(145deg,#1d2f55,#0e1a33);border:2px solid #d4af37;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:47px;box-shadow:inset 0 -8px 16px rgba(0,0,0,.35),0 12px 26px rgba(0,0,0,.4)}
-#screen-start{text-align:center}
-.badge{display:inline-block;background:linear-gradient(90deg,#b8860b,#d4af37);color:#1a1405;font-size:13px;font-weight:700;letter-spacing:1px;padding:6px 14px;border-radius:999px;margin-bottom:16px;box-shadow:0 8px 18px rgba(212,175,55,.35)}
-h1{font-family:"Songti SC","STSong",serif;font-size:33px;line-height:1.35;margin-bottom:14px;letter-spacing:.5px;color:#1a2340}
-.grad{background:linear-gradient(90deg,#b8860b,#d4af37);-webkit-background-clip:text;background-clip:text;color:transparent}
-.sub{color:#6d5c48;font-size:15.5px;line-height:1.75;margin-bottom:22px}
-.meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px;justify-content:center}
-.meta span{background:#fbf3d9;border:1px solid #e3c766;color:#8a6d1f;font-size:13px;font-weight:500;padding:6px 12px;border-radius:999px}
-.btn{display:block;width:100%;background:linear-gradient(90deg,#b8860b,#d4af37);color:#1a1405;border:none;font-size:17.5px;font-weight:700;letter-spacing:2px;padding:16px;border-radius:999px;cursor:pointer;box-shadow:0 12px 26px rgba(212,175,55,.4);transition:transform .15s ease}
-.btn:active{transform:scale(.97)}
-.btn.ghost{background:#fff;color:#8a6d1f;border:1.5px solid #d4af37;margin-top:12px;box-shadow:none;letter-spacing:1px}
-.disc{color:#a08b6d;font-size:12px;text-align:center;margin-top:18px;line-height:1.6}
-.progress{height:10px;background:#efe6c8;border-radius:99px;overflow:hidden;margin-bottom:10px}
-.progress i{display:block;height:100%;background:linear-gradient(90deg,#d4af37,#b8860b);border-radius:99px;transition:width .35s ease}
-.qcount{color:#8a6d1f;font-size:13px;font-weight:600;letter-spacing:1.5px;margin-bottom:6px}
-.qtitle{font-size:14px;color:#8a6d1f;font-weight:700;letter-spacing:2px;margin-bottom:10px}
-.qtext{font-size:18.5px;font-weight:600;line-height:1.6;margin-bottom:16px;color:#1a2340}
-.qask{font-size:13.5px;color:#a08b6d;margin:4px 0 10px}
-.opt{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid #e3c766;color:#2b2118;font-size:16px;line-height:1.5;padding:13px 17px;border-radius:16px;margin-bottom:9px;cursor:pointer;animation:fadeUp .35s ease both;transition:background .15s ease,border-color .15s ease}
-.opt:active,.opt.picked{background:linear-gradient(120deg,#fdf6dd,#f7e9b8);border-color:#b8860b;color:#5c430a;font-weight:600;box-shadow:0 8px 20px rgba(184,134,11,.18)}
-.opt .k{display:inline-block;width:24px;height:24px;line-height:24px;text-align:center;border-radius:50%;background:#1d2f55;color:#e8c96a;font-size:13px;font-weight:700;margin-right:9px;vertical-align:2px}
-.back{background:none;border:none;color:#a08b6d;font-size:14px;cursor:pointer;padding:8px 0}
-#screen-result .rtype,#screen-result .rname,#screen-result .rquote,#screen-result .rsub,#screen-result .tags{text-align:center}
-.rtype{font-size:14px;color:#8a6d1f;font-weight:600;letter-spacing:4px;margin-top:2px}
-.rname{font-family:"Songti SC","STSong",serif;font-size:37px;font-weight:800;margin:10px 0 14px;background:linear-gradient(90deg,#b8860b,#8a6d1f);-webkit-background-clip:text;background-clip:text;color:transparent}
-.rquote{color:#5c4a33;font-size:16.5px;line-height:1.65;background:#fdf6dd;border:1px solid #e3c766;border-radius:16px;padding:14px 16px;margin-bottom:12px}
-.rsub{color:#a08b6d;font-size:13.5px;line-height:1.7;margin-bottom:20px}
-.sec{margin-bottom:16px;border-top:1px dashed #e3c766;padding-top:15px;text-align:left}
-.sec h3{font-size:15px;color:#8a6d1f;margin-bottom:7px;display:flex;align-items:center;gap:8px}
-.sec h3::before{content:"";width:4px;height:15px;border-radius:2px;background:linear-gradient(180deg,#d4af37,#b8860b)}
-.sec p{font-size:15px;line-height:1.8;color:#4a3a28}
-.sec p b{color:#5c430a}
-.tags{margin-bottom:22px}
-.tags span{display:inline-block;background:linear-gradient(120deg,#fdf6dd,#f7e9b8);border:1px solid #e3c766;color:#8a6d1f;font-size:13px;font-weight:500;padding:6px 12px;border-radius:999px;margin:0 6px 6px 0}
-.score{margin-bottom:6px}
-.scorerow{display:flex;align-items:center;gap:10px;margin-bottom:9px}
-.scorerow .sl{flex:none;width:74px;font-size:13.5px;color:#5c4a33;font-weight:600}
-.scorerow .st{flex:1;height:9px;background:#efe6c8;border-radius:99px;overflow:hidden}
-.scorerow .st i{display:block;height:100%;background:linear-gradient(90deg,#d4af37,#b8860b);border-radius:99px}
-.scorerow .sv{flex:none;width:30px;font-size:12.5px;color:#a08b6d;text-align:right}
-.modal{position:fixed;inset:0;background:rgba(10,18,38,.78);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;overflow-y:auto;padding:58px 20px 24px;z-index:9}
-.modal img{width:min(78vw,340px);max-height:62vh;object-fit:contain;border-radius:20px;box-shadow:0 16px 50px rgba(0,0,0,.5)}
-.modal p{color:#e8c96a;font-size:13.5px;margin-top:14px}
-.modal .x{position:absolute;top:18px;right:22px;color:#fff;font-size:28px;background:none;border:none;cursor:pointer}
-.modal.hidden{display:none}
-:root{color-scheme:light}
-body{padding-top:max(26px,env(safe-area-inset-top));padding-bottom:max(44px,env(safe-area-inset-bottom))}
-.btn:focus-visible,.opt:focus-visible,.back:focus-visible,.modal button:focus-visible{outline:3px solid #8a6d1f;outline-offset:3px}
-.opt:disabled{cursor:wait;opacity:.78}
-.share-title{color:#fff;font-size:16px;margin:0 0 10px;text-align:center}
-.share-actions{width:min(88vw,360px);display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
-.share-actions .btn{font-size:14px;letter-spacing:0;padding:12px 8px}
-.modal #shareHint{margin-top:10px;text-align:center}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
-@media(max-width:380px){.card{padding:28px 19px 24px;border-radius:23px}.qtext{font-size:17px}.opt{font-size:15px}}
+  :root{
+    --bg:#F6F5F1;
+    --card:#FFFFFF;
+    --ink:#2B2925;
+    --sub:#8A8578;
+    --line:#ECE8DF;
+    --accent:#DE5A26;
+    --accent-soft:#FCF0E8;
+    --radius:20px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{background:var(--bg)}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    color:var(--ink);
+    line-height:1.7;
+    padding:28px 18px 48px;
+  }
+  .wrap{max-width:560px;margin:0 auto}
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:30px 24px;
+  }
+  .pill{
+    display:inline-block;
+    font-size:12px;
+    color:var(--accent);
+    background:var(--accent-soft);
+    border-radius:999px;
+    padding:4px 12px;
+    letter-spacing:.08em;
+  }
+  h1{font-size:27px;line-height:1.45;font-weight:700;margin:16px 0 12px}
+  .intro{color:#5C574C;font-size:15px;margin-bottom:10px}
+  .fine{color:var(--sub);font-size:12.5px;margin-top:18px}
+  .btn{
+    display:block;width:100%;
+    border:none;cursor:pointer;
+    background:var(--accent);color:#fff;
+    font-size:16.5px;font-weight:600;
+    border-radius:14px;
+    padding:15px 0;
+    margin-top:24px;
+    letter-spacing:.06em;
+  }
+  .btn:active{opacity:.85}
+  .btn.ghost{
+    background:var(--card);color:var(--ink);
+    border:1px solid var(--line);
+  }
+  /* question */
+  .qhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .qcount{font-size:13px;color:var(--sub);letter-spacing:.05em}
+  .bar{height:4px;background:var(--line);border-radius:99px;overflow:hidden;margin-bottom:24px}
+  .bar > div{height:100%;background:var(--accent);border-radius:99px;transition:width .3s ease}
+  .qtext{font-size:19.5px;font-weight:600;line-height:1.6;margin-bottom:8px}
+  .qhint{font-size:13px;color:var(--sub);margin-bottom:20px}
+  .opt{
+    display:flex;gap:12px;align-items:flex-start;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:14px 16px;
+    margin-bottom:10px;
+    cursor:pointer;
+    font-size:15.5px;line-height:1.6;
+    transition:border-color .15s,background .15s;
+    user-select:none;
+  }
+  .opt .k{
+    flex:0 0 auto;
+    width:24px;height:24px;border-radius:50%;
+    border:1px solid var(--line);
+    color:var(--sub);
+    font-size:12.5px;
+    display:flex;align-items:center;justify-content:center;
+    margin-top:2px;
+    background:#fff;
+  }
+  .opt.sel{border-color:var(--accent);background:var(--accent-soft)}
+  .opt.sel .k{background:var(--accent);border-color:var(--accent);color:#fff}
+  .back{
+    display:inline-block;margin-top:10px;
+    color:var(--sub);font-size:14px;cursor:pointer;background:none;border:none;padding:6px 0;
+  }
+  /* result */
+  .rlabel{font-size:13px;color:var(--sub);letter-spacing:.1em}
+  .rname{font-size:30px;font-weight:700;margin:8px 0 2px}
+  .rsub{font-size:16.5px;color:var(--accent);font-weight:600;margin-bottom:14px}
+  .rlead{font-size:16.5px;font-weight:600;line-height:1.65;margin-bottom:16px}
+  .replay{
+    background:var(--accent-soft);
+    border-radius:12px;
+    padding:12px 14px;
+    font-size:14px;line-height:1.65;
+    margin-bottom:16px;
+  }
+  .score-line{font-size:14px;color:#5C574C;margin-bottom:6px}
+  .tie{
+    font-size:13.5px;color:#5C574C;
+    border:1px dashed var(--line);
+    border-radius:12px;padding:10px 14px;margin:12px 0 4px;
+    line-height:1.65;
+  }
+  .rbody{font-size:15px;color:#3D3A33;margin-top:14px}
+  .quote{
+    margin-top:20px;
+    background:#FBFAF7;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:14px 16px;
+    font-size:15px;
+  }
+  .quote .qt{color:var(--sub);font-size:12px;letter-spacing:.1em;display:block;margin-bottom:4px}
+  .scores{margin-top:22px}
+  .scores .st{font-size:13px;color:var(--sub);letter-spacing:.1em;margin-bottom:10px}
+  .srow{display:flex;align-items:center;gap:10px;font-size:14px;margin-bottom:8px}
+  .srow .nm{flex:0 0 52px}
+  .srow .tr{flex:1;height:6px;background:var(--line);border-radius:99px;overflow:hidden}
+  .srow .tr > div{height:100%;background:#CFC8B8;border-radius:99px}
+  .srow.me .tr > div{background:var(--accent)}
+  .srow .ct{flex:0 0 20px;text-align:right;color:var(--sub)}
+  .hidden{display:none}
 </style>
 </head>
 <body>
-<main class="wrap">
+<div class="wrap">
 
-  <div class="card" id="screen-start">
-    <div class="hero">🐵</div>
-    <span class="badge">趣味测试 · 12 道题</span>
-    <h1>你是西游记里的，<br><span class="grad">哪一位</span>？</h1>
-    <p class="sub">孙悟空、猪八戒、沙僧、唐僧、白龙马、观音——12 道生活里的真实情境，凭直觉答，3 分钟测出你骨子里是西游记里的哪一位。</p>
-    <div class="meta"><span>⏱ 约 3 分钟</span><span>🐒 6 个角色</span><span>📸 结果可截图分享</span></div>
-    <button class="btn" id="btnStart">开始测试</button>
-    <p class="disc">按照你真实的反应作答，而不是你觉得“应该”怎么做。<br>本测试为趣味娱乐，非专业心理测评，仅供自我探索参考。</p>
-  </div>
+  <!-- 开始页 -->
+  <section id="screen-start" class="card">
+    <span class="pill">趣味测试 · 12 道题</span>
+    <h1>测测你更像《西游记》里的谁？</h1>
+    <p class="intro">12 道日常情境题，看看一群人遇到事时，你习惯从哪里入手。</p>
+    <p class="intro">请按最近几个月的实际做法来选。每题单选。如果几项都像你，选你最可能先做、或做得最自然的那一项。没遇过类似情况，就选你觉得自己最顺手的做法。</p>
+    <button class="btn" id="btn-start">开始测试</button>
+    <p class="fine">本测试为趣味娱乐，非专业心理测评，仅供自我探索参考。</p>
+  </section>
 
-  <div class="card hidden" id="screen-quiz">
-    <div class="progress" role="progressbar" aria-label="测试进度" aria-valuemin="0" aria-valuemax="12" aria-valuenow="0"><i id="bar" style="width:0%"></i></div>
-    <div class="qcount" id="qcount" aria-live="polite"></div>
-    <div class="qtitle" id="qtitle"></div>
-    <div class="qtext" id="qtext" tabindex="-1" aria-live="polite"></div>
-    <div class="qask">选最像你的那一个（单选）：</div>
-    <div id="opts"></div>
-    <button class="back" id="btnBack">← 上一题</button>
-  </div>
+  <!-- 答题页 -->
+  <section id="screen-quiz" class="card hidden">
+    <div class="qhead"><span class="qcount" id="q-count">第 1 / 12 题</span></div>
+    <div class="bar"><div id="q-bar" style="width:8.3%"></div></div>
+    <div class="qtext" id="q-text"></div>
+    <div class="qhint">选最像你的那一个（单选）</div>
+    <div id="q-opts"></div>
+    <button class="back hidden" id="btn-back">← 上一题</button>
+  </section>
 
-  <div class="card hidden" id="screen-result">
-    <div class="rtype">你骨子里是西游记里的</div>
-    <div class="rname" id="rname"></div>
-    <p class="rquote" id="rquote"></p>
-    <p class="rsub" id="rsub"></p>
-    <div class="tags" id="rtags"></div>
-    <div class="sec"><h3>六位得分</h3><div class="score" id="rscore"></div></div>
-    <div class="sec"><h3>你的性格底色</h3><p id="rbase"></p></div>
-    <div class="sec"><h3>你做事的样子</h3><p id="rstyle"></p></div>
-    <div class="sec"><h3>你的优势</h3><p id="rstrength"></p></div>
-    <div class="sec"><h3>你容易栽的坑</h3><p id="rpit"></p></div>
-    <div class="sec"><h3>你和谁最合拍</h3><p id="rmatch"></p></div>
-    <div class="sec"><h3>给你的一句话</h3><p id="rword"></p></div>
-    <button class="btn" id="btnCard">生成结果卡（截图分享）</button>
-    <button class="btn ghost" id="btnAgain">再测一次</button>
-    <p class="disc">本测试为趣味娱乐，非专业心理测评，仅供自我探索参考。</p>
-  </div>
+  <!-- 结果页 -->
+  <section id="screen-result" class="card hidden">
+    <div class="rlabel">你更像《西游记》里的</div>
+    <div class="rname" id="r-name"></div>
+    <div class="rsub" id="r-sub"></div>
+    <div class="rlead" id="r-lead"></div>
+    <div class="replay" id="r-replay"></div>
+    <div class="score-line" id="r-scoreline"></div>
+    <div class="tie hidden" id="r-tie"></div>
+    <p class="rbody" id="r-p1"></p>
+    <p class="rbody" id="r-p2"></p>
+    <div class="quote"><span class="qt">晒图短句</span><span id="r-quote"></span></div>
+    <div class="scores">
+      <div class="st">六位得分</div>
+      <div id="r-scores"></div>
+    </div>
+    <button class="btn" id="btn-share">分享结果</button>
+    <button class="btn ghost" id="btn-again">再测一次</button>
+    <p class="fine">趣味测试，仅供自我探索参考。</p>
+  </section>
 
-</main>
-
-<div class="modal hidden" id="cardModal" role="dialog" aria-modal="true" aria-labelledby="shareTitle">
-  <button class="x" id="btnCloseCard" aria-label="关闭结果卡">×</button>
-  <h2 id="shareTitle" class="share-title">结果卡已生成</h2>
-  <img id="cardImg" alt="你的西游测试结果卡">
-  <div class="share-actions"><button class="btn" id="btnDownloadCard">保存图片</button><button class="btn ghost" id="btnShareCard">分享结果</button></div>
-  <p id="shareHint">也可以长按图片保存到相册</p>
 </div>
-<canvas id="cv" width="1080" height="1440" style="display:none"></canvas>
-<script>
-const ROLES={
-"悟":{name:"孙悟空",type:"桀骜行动型",quote:"有本事、不服管，天塌下来先抡一棒子。",tags:["行动力","敢担责","护短"],base:"你的底色是「野」：脑子快、手更快，别人还在开会讨论，你已经干完一半了。你讨厌被管、被框，越是说「这事不行」，你越想试试到底行不行。",style:"主动、果断、敢担责，团队里最难啃的骨头最后都是你啃的；你护短，欺负你的人可以，欺负你的人不行。",strength:"能力强、行动力爆表、有你在，事情就推得动。",pit:"脾气比本事先到，容易得罪人；还有，不服管不等于不听劝——真正的高手，是打得赢也收得住。",match:"观音（唯一能让你冷静三秒的人）、沙僧（你冲前面，他稳后面）。",word:"本事是你的金箍棒，别让脾气成了你的紧箍咒。"},
-"戒":{name:"猪八戒",type:"松弛享乐型",quote:"心态好、会生活，天大的事先吃饱再说。",tags:["情绪稳定","知足常乐","会哄人"],base:"你的底色是「松」：你不是没上进心，你是想通了——日子是过给自己的，不是过给别人看的。别人焦虑内耗的时候，你已经睡了个好觉、吃了顿好的，状态反而最好。",style:"不抢功、不逞强，能躺着解决的绝不站着；别看你平时懒洋洋，真到关键时刻，你出的力一点不少。",strength:"情绪稳定、会哄人开心、知足常乐，和你在一起的人，很少觉得累。",pit:"你的问题是「启动慢」：想分行李的念头一天冒三回，正事拖到最后一晚才开始。还有，好吃可以，别拿身体换。",match:"唐僧（他推着你走，你逗着他笑）、孙悟空（他负责打妖怪，你负责活跃气氛）。",word:"你的福气是心态挣的，把启动键提前一点，你的人生能再顺一截。"},
-"沙":{name:"沙僧",type:"踏实靠谱型",quote:"话不多，但担子在你肩上，从没掉过链子。",tags:["靠谱","踏实","情绪稳"],base:"你的底色是「稳」：不抢话、不抢功、不站 C 位，但哪个团队都少不了你——因为最脏最累最没人注意的活，一直是你默默干完的。",style:"答应的事从不掉链子，情绪再差也不撂挑子；你不爱表达，但心里什么都有数，谁对你好，你记一辈子。",strength:"靠谱、踏实、情绪稳，是所有人心里「有他在就放心」的那个人。",pit:"太能忍、太不会说。有想法不提、有委屈不说，最后大家真以为你没意见——你的好，要说出来才有人知道。",match:"孙悟空（他懂你的付出，你稳他的冲动）、观音（最能看见你沉默背后的人）。",word:"挑了这么久的担子，偶尔也要说一句「我也累了」。"},
-"僧":{name:"唐僧",type:"坚定心软型",quote:"认定的路，八十一难也一步步走到底。",tags:["韧性","自律","有信念感"],base:"你的底色是「定」：你看着温和，其实是全队最犟的人。目标一旦定下，别人劝、现实拦、自己吃苦，你都不回头，一步一步挪也要挪到。",style:"有原则、守规矩、讲体面，不占人便宜也不亏待人；你相信认真做事的人，最后都会走到想去的地方。",strength:"韧性极强、自律、有信念感，是能把一件事真正做成的人。",pit:"心太软，容易被卖惨的拿捏，坏人哭两声你就信了；还有，认死理的时候要听一听身边人的提醒——不是所有劝都是干扰，有的是救命。",match:"孙悟空（你定方向，他扫障碍）、猪八戒（他让你别太紧绷，学会歇一歇）。",word:"心软是慈悲，留三分分辨，才是智慧。"},
-"龙":{name:"白龙马",type:"低调扛事型",quote:"不抢风头不出声，全程驮着大家往前走。",tags:["沉得住气","耐力惊人","压舱石"],base:"你的底色是「沉」：你其实什么都有——有实力、有想法、有脾气，但你从不争着表现。你信的是：事成了，比说什么都强。",style:"平时隐身，出问题时第一个被想起的就是你；你扛事不喊累，帮人不留名，存在感全在关键时刻刷满。",strength:"沉得住气、耐力惊人、关键时刻从不变卦，是真正的压舱石。",pit:"太低调，容易被当成理所当然，功劳簿上总没你的名字。偶尔也要让别人知道：这事，是你扛下来的。",match:"唐僧（他最懂你的忠诚）、孙悟空（你俩一个明一个暗，配合无声）。",word:"驮了大家一路，也要记得，你自己也是要去西天的人。"},
-"音":{name:"观音",type:"救场调解型",quote:"谁的烂摊子摆不平，你都能笑着收好。",tags:["情商高","人缘好","关键人物"],base:"你的底色是「和」：情商高、心眼明、会做人。别人吵得不可开交，你一句话就能让场面降温；谁有难处，第一个想到的求助对象总是你。",style:"不轻易站队，先听完再开口；你帮人不图回报，但记性好，谁值得帮、谁不值得，你心里有本账。",strength:"人缘好、口碑佳、资源广，是朋友圈里真正的「关键人物」。",pit:"总在救别人的场，自己的事反而没人救。学会拒绝不算冷漠——你的善良，也要留额度给自己。",match:"孙悟空（全世界只有你能让他服软）、沙僧（你最懂不说话的人心里装了多少事）。",word:"普度众生之前，先普度一下自己。"}
-};
-const ORDER=["悟","戒","沙","僧","龙","音"];
-const QUESTIONS=[
-{t:"团队任务",q:"团队接到一个又难又急的任务，你的第一反应是？",opts:[["先上，干起来再说，办法总比问题多","悟"],["先看看能不能找个省力的法子","戒"],["不声张，先把自己那摊活理顺","沙"],["先定目标和规矩，一步一步来，不许乱","僧"],["谁需要搭手我就去哪，补位就行","龙"],["先安抚大家情绪，别还没干先吵起来","音"]]},
-{t:"当众被批评",q:"被领导/老师当众批评了，其实不全是你的错，你会？",opts:[["当场说清，该我的我认，不该的别扣我头上","悟"],["左耳进右耳出，批评又不能当饭吃","戒"],["先听着，回去把活干漂亮了再说","沙"],["回去认真想想，他说的有没有一点道理","僧"],["不争辩，也不多想，做好自己的就行","龙"],["先稳住场面别闹僵，私下再找机会说开","音"]]},
-{t:"朋友组局",q:"朋友组局，最可能出现的是哪个你？",opts:[["迟到最少、动手最多的那个，局散了我还在收拾","沙"],["吃得最香、笑得最大声的那个","戒"],["被拉来救场、谁跟谁闹别扭都找我评理的那个","音"],["张罗流程的那个，时间地点规矩都我定","僧"],["不太抢话，但谁没车回家我顺路捎谁","龙"],["提议最大胆的那个：走，去没去过的地方","悟"]]},
-{t:"特别不顺",q:"遇到一件特别不顺的事（项目黄了、考试砸了），你会？",opts:[["不服，再来一次，换个打法继续干","悟"],["先睡一觉吃顿好的，天塌不下来","戒"],["默默复盘哪一步出了问题，下次绕开","沙"],["告诉自己这是必经的坎，熬过去就好了","僧"],["不太往心里去，该干嘛干嘛","龙"],["先去帮别人把事处理了，自己的慢慢来","音"]]},
-{t:"最受不了的人",q:"你最受不了哪种人？",opts:[["说话绕弯子、有话不直说的","悟"],["天天苦大仇深、一点不会享受生活的","戒"],["耍小聪明偷懒、把活推给别人的","沙"],["没原则、见风使舵的","僧"],["抢功劳、爱出风头的","龙"],["一出事就甩锅、没人收拾残局的","音"]]},
-{t:"一笔闲钱",q:"手里突然多了一笔闲钱，你最想怎么花？",opts:[["买装备/学本事，把自己练得更强","悟"],["吃喝玩乐先安排上，人生苦短","戒"],["存起来，家里的大事小情都指着它兜底","沙"],["花在一直想做、但总被耽误的那件正事上","僧"],["给家里人买点好的，自己没啥想要的","龙"],["留一部分，谁有急事能随时伸手帮一把","音"]]},
-{t:"同事闹矛盾",q:"同事/同学之间闹矛盾了，你一般是？",opts:[["站得最直的那个，对错必须分清","僧"],["和事佬，拉着吃顿饭啥事都过去了","戒"],["不掺和，干好自己的活最重要","沙"],["两边的话都听完，再想办法圆回来","音"],["谁占理我帮谁，哪怕对方更强势","悟"],["不出头，但默默帮弱势的那边把活分担了","龙"]]},
-{t:"出门旅行",q:"出门旅行，你的行程风格是？",opts:[["不做攻略，走到哪算哪，刺激优先","悟"],["攻略全是吃的，景点随缘","戒"],["提前查好路线车次，一项不落","沙"],["有明确的目的地和必打卡清单，不达目的不罢休","僧"],["跟着大家走，你们去哪我去哪","龙"],["我负责拍照订票看孩子，大管家本家","音"]]},
-{t:"别人眼中的你",q:"别人对你最常见的评价是？",opts:[["本事大，就是脾气也大","悟"],["心态真好，跟他在一起没烦恼","戒"],["靠谱，交给他的事不用操心","沙"],["有股韧劲，认准的事谁劝都不听","僧"],["存在感不强，但少了他真不行","龙"],["会做人，谁跟他相处都舒服","音"]]},
-{t:"死活解不开的难题",q:"碰到一个死活解决不了的难题，你会？",opts:[["硬啃，啃不动就换个姿势继续啃","悟"],["先放一放，说不定睡一觉就有办法了","戒"],["一点一点磨，笨办法也是办法","沙"],["先想清楚这事到底值不值得，非做不可就耗到底","僧"],["找人帮忙不丢人，我去搬救兵","音"],["不声不响自己扛，实在扛不住再说","龙"]]},
-{t:"交朋友",q:"你交朋友最看重什么？",opts:[["真本事，相处起来过瘾","悟"],["好相处，在一起开心最重要","戒"],["踏实，不玩虚的","沙"],["人品正，三观合得来","僧"],["不争不抢，相处没压力","龙"],["善良，谁落难他都愿意搭把手","音"]]},
-{t:"取经队伍里的位置",q:"如果西天取经的队伍里必须有你，你最想当哪个位置？",opts:[["开路的，妖怪来了第一个上","悟"],["管气氛的，再难的路也要笑着走","戒"],["挑担的，脏活累活我来","沙"],["带队的，方向不能错","僧"],["托底的，平时不出声，关键时刻顶上","龙"],["不在队里，但全队有难时随叫随到","音"]]}
-];
-const LETTERS=["A","B","C","D","E","F"];
 
-let idx=0; const answers=[]; let answerLocked=false; let shareReturnFocus=null;
-const $=id=>document.getElementById(id);
-function show(id){["screen-start","screen-quiz","screen-result"].forEach(s=>$(s).classList.toggle("hidden",s!==id));const el=$(id);el.style.animation="none";void el.offsetWidth;el.style.animation="";window.scrollTo(0,0);}
-function renderQ(){
-  const cur=QUESTIONS[idx];
-  answerLocked=false;
-  $("bar").style.width=((idx+1)/QUESTIONS.length*100)+"%";
-  $("bar").parentElement.setAttribute("aria-valuenow",String(idx+1));
-  $("qcount").textContent="第 "+(idx+1)+" / "+QUESTIONS.length+" 题";
-  $("qtitle").textContent=cur.t;
-  $("qtext").textContent=cur.q;
-  const box=$("opts"); box.innerHTML="";
-  cur.opts.forEach(([txt,role],oi)=>{
-    const b=document.createElement("button"); b.className="opt"; b.style.animationDelay=(oi*0.04)+"s";
-    b.innerHTML='<span class="k">'+LETTERS[oi]+'</span>'+txt;
-    if(answers[idx]===role) b.classList.add("picked");
-    b.setAttribute("aria-pressed",String(answers[idx]===role));
-    b.onclick=()=>{if(answerLocked)return; answerLocked=true; box.querySelectorAll("button").forEach(x=>x.disabled=true); answers[idx]=role; b.classList.add("picked"); b.setAttribute("aria-pressed","true"); setTimeout(()=>{ idx++; if(idx<QUESTIONS.length){renderQ();} else {showResult();} },180);};
-    box.appendChild(b);
+<script>
+var ROLES = {
+  wu:  {name:"孙悟空", sub:"先试一步的人",
+        lead:"大家还在想能不能做，你已经想好了第一步怎么试。",
+        p1:"遇到迟迟没进展的事，你往往想先试一小步。比如一群人聊了半天方案，你可能先做个粗糙的小样。东西摆在眼前，大家终于能指出哪儿能用、哪儿得改。别人只看到你动得快，容易漏掉你也改得快。",
+        p2:"有时你已经换了第二套办法，同行的人还以为第一套作数。开动前补一句「我先试这一步，十分钟后回来碰一下」，大家就更容易跟上。",
+        quote:"先试一下。行就接着走，卡了就换条路。"},
+  jie: {name:"猪八戒", sub:"会把日子过松一点的人",
+        lead:"越是忙到喘不过气，你越知道哪一步可以省，哪口气得先喘。",
+        p1:"行程泡汤，你可能是最早提议找地方坐一会儿的人。活堆成山，你也容易先看到哪些步骤能合并、哪些可以等。人缓过来以后，原先卡住的事有时就能重新动起来。和你待在一起，大家容易想起来，今天忙归忙，饭还是可以好好吃。",
+        p2:"你也可能把「等缓一缓」一直往后推。真得回来处理的事，先给自己定一个回来的时间，会更容易放下，也更容易捡起来。",
+        quote:"取经归取经，午饭还是得好好吃。"},
+  sha: {name:"沙僧", sub:"把事做扎实的人",
+        lead:"交到你手上的事，别人通常知道它做到哪儿、什么时候能拿到。",
+        p1:"遇到多人一起做事，你习惯把自己认领的部分理清。比如活动快开始了，你会再对一遍物料和到场时间。结束后，漏掉的文件、没关掉的待办，你也往往会顺手收掉。你的靠谱，常体现在这些平时没人特意问的小地方。",
+        p2:"碰上计划临时改，你可能想先把原先那一版收完整。先问一句「这块现在还要交吗」，能把力气留给仍然有用的部分。",
+        quote:"一路上最常说的话是「这件我弄好了」。"},
+  seng:{name:"唐僧", sub:"记得为什么出发的人",
+        lead:"大家都在想怎么赶路，你习惯先确认这趟到底要去哪儿。",
+        p1:"时间紧起来，别人可能忙着删步骤，你会先问哪项要求一定得保住。朋友聚会越约越复杂，你也可能提醒大家，这次最想做的是给某个人过生日。那个最初说好的目标，在你这里通常还记得很清楚。",
+        p2:"你越在意一件事，越容易把原来的走法也一并守住。下次卡住，可以把「我想守住的」和「我愿意换的」各说一件，别人就知道哪里还有商量的余地。",
+        quote:"路可以绕，想去的地方我还记得。"},
+  long:{name:"白龙马", sub:"看见缺口就搭把手的人",
+        lead:"别人还没开口，你有时已经看见他手上多出来的那一件事。",
+        p1:"你未必最早认领一个显眼的位置。可到了快收摊的时候，你常会注意到还有人走不开，或者某件事一直没人接。你给的帮助往往很具体，比如把一趟来回接过去，或把临时少人的那一段顶起来。",
+        p2:"因为你常常顺手就做了，旁人有时不知道你也快排满了。说清楚「我可以接这件，另一件需要你们再找人」，你的好意才有余地持续。",
+        quote:"我在队里，哪段缺人就喊我。"},
+  yin: {name:"观音", sub:"让大家把话说到一处的人",
+        lead:"一群人都觉得自己说清楚了，你常能听出来他们其实在说两件事。",
+        p1:"比如两个人为了时间吵起来，一个怕迟到，另一个怕准备不完。你多半会先确认各自在担心什么，再找一个两边都能接住的安排。朋友来找你时，你也常会先弄清他想被听一会儿，还是想一起想办法。",
+        p2:"你有时忙着照顾每个人怎么想，最后忘了说自己的意见。等大家说完，也可以接一句「我希望事情最后是这样」，让你的需要也进到讨论里。",
+        quote:"你俩先各说一句，我听听卡在哪儿。"}
+};
+var ORDER = ["wu","jie","sha","seng","long","yin"];
+
+/* 每题: t=题干, o=[6个选项], m=[选项对应的角色键 A..F] */
+var QUESTIONS = [
+ {t:"临时接到一个明天就要交的多人任务。刚看完消息，你最可能先做什么？",
+  o:["挑个卡住的地方，先做个小样看看能不能跑通。","看看哪些地方能用现成材料，先把工作量降下来。","列出自己要交的东西，先做最容易拖到最后的那项。","问清楚明天交上去至少得达到什么要求。","看看哪块还没人认领，先接一件自己做得来的。","让大家各说一句最缺什么，免得几个人同时卡在一处。"],
+  m:["wu","jie","sha","seng","long","yin"]},
+ {t:"几个人约好周末见面，有人嫌远，有人只有两小时。你更可能怎么接话？",
+  o:["把大家能到的时间和路程对一遍，找个好订位的方案。","先确认这次是为了见谁或做什么，围绕那件事定安排。","问问那个行程最赶的人，要不要我顺路接一下。","把在意路程的和在意时间的顾虑说清，看看能不能各让一点。","直接提一个新地点，问大家要不要就试这家。","挑个能坐下来吃点东西的地方，其他安排随当天状态。"],
+  m:["sha","seng","long","yin","wu","jie"]},
+ {t:"你花了不少时间准备的方案被退回，还有人等着用这份材料。接下来半小时，你多半会做什么？",
+  o:["先把还能用的部分发给等材料的人，免得他们也停在原地。","找提出意见的人聊几句，弄清双方卡在了哪里。","抓住最有争议的一点，换个办法试出来给人看。","先去走走或吃点东西，等自己缓过来再开文档。","把反馈逐条对上原稿，标出具体要改的地方。","回看最初想解决的问题，想清楚哪些改动值得接受。"],
+  m:["long","yin","wu","jie","sha","seng"]},
+ {t:"几个人在群里讨论一件事，话越说越冲。你也在群里，最可能做什么？",
+  o:["提议先歇十分钟，等大家缓一缓再回来聊。","把已确认的事和待确认的事列出来，先照已定的部分做。","提醒大家原先约好的规则，问现在是否还按那个来。","私聊那个明显忙不过来的人，问他有没有一件事能交给我。","把双方各自的顾虑复述一遍，问问我理解得对不对。","把有争议的那一点挑出来，直接说我的看法。"],
+  m:["jie","sha","seng","long","yin","wu"]},
+ {t:"出门旅行时，原定的活动临时取消。同行的人都还在等下一步，你更可能做什么？",
+  o:["想想大家这趟最期待什么，看看附近有没有类似的安排。","看看谁带着行李或已经走累了，先替他分担一点。","问清有人想走、有人想留的原因，看能不能分开活动再会合。","在附近找个没去过的地方，提议直接过去看看。","找家店坐一会儿，把空出来的时间当成休息。","查好替代地点的开放时间、交通和剩余名额。"],
+  m:["seng","long","yin","wu","jie","sha"]},
+ {t:"朋友做一件事遇到困难，来找你聊。听完以后，你更自然的反应是什么？",
+  o:["先确认他现在想有人听，还是想一起商量下一步。","挑出最卡的一步，陪他当场试一个新办法。","先带他去做点轻松的事，等他有劲了再聊。","陪他把待办排个顺序，看看哪件今天能做完。","问他最想守住什么，帮他按这个标准做取舍。","问他哪件杂事现在最占精力，能接就帮他接走。"],
+  m:["yin","wu","jie","sha","seng","long"]},
+ {t:"大家原定的交付时间突然提前，照原计划肯定做不完。你最先想到的是？",
+  o:["重排自己手上的步骤，先交能独立验收的部分。","看谁手上同时压着几件急事，接过一件能立刻做的。","把复杂流程压成简版，留出一点喘气的时间。","把受影响的人拉到一起，让大家对齐先做什么、晚交什么。","和相关的人确认，这次必须保住哪项要求。","换条路，用一个小样先把核心做出来。"],
+  m:["sha","long","jie","yin","seng","wu"]},
+ {t:"忙了一周，周末只空出一个下午。没有急事催你，你更想怎么用这段时间？",
+  o:["挑一件马上能让我放松的事，痛快享受一下午。","约一个最近有点误会的人坐下来，把话说开。","留给那个一直想推进的计划，哪怕只往前走一点。","试个一直好奇、还没真正动手的东西。","收掉一两件积着没处理的小事，晚上心里清爽。","陪身边最近忙不过来的人办件事，顺便见一面。"],
+  m:["jie","yin","seng","wu","sha","long"]},
+ {t:"一起做的事情刚结束，大家都松了口气。你最容易主动做的收尾是什么？",
+  o:["对照一开始的目标，看看最在意的那件事做到了没有。","记下一个下次可以大胆试试的办法。","把文件、记录和没关掉的待办一一收好。","接过还落在同一个人身上的一件杂活。","喊大家去吃点好的，把紧绷的劲儿卸下来。","问问大家哪里配合得顺、哪里下次要提前说开。"],
+  m:["seng","wu","sha","long","jie","yin"]},
+ {t:"有人临时想请你帮忙，你这几天也排得挺满。你更可能怎么回？",
+  o:["整件我接不了，但有个小环节我今晚能替你做掉。","今天有点排满了，咱们约个轻松一点的时间再看。","我先听听你需要什么，看看能不能帮你对接更合适的人。","先说说哪件事一定得办成，我们把其余的放一放。","你把最卡的那一步发我，我现在跟你一起试一下。","我先看下手里的安排，能接的部分和时间我给你个准话。"],
+  m:["long","jie","yin","seng","wu","sha"]},
+ {t:"一起做事时，听到哪一句，你最容易想起自己确实常这么做？",
+  o:["卡半天的地方，你一换办法，事情就动起来了。","答应的那部分到点就给，进度也说得清楚。","哪儿突然缺个人，你经常顺手就补上了。","大家都绷着的时候，你总能让这事轻一点。","原来各说各的，你问了几句，大家就聊到一块儿了。","大家快跑偏的时候，你还记得当初为什么要做。"],
+  m:["wu","sha","long","jie","yin","seng"]},
+ {t:"几个人要一起办一场小活动，还没开始分工。回想你平时的做法，你通常最先认领什么？",
+  o:["和负责不同环节的人碰一遍，提前找出彼此卡住的地方。","定下活动最想让大家带走什么，再决定保留哪些环节。","先做个雏形，让大家有个具体的东西可以讨论。","管物料和时间表，确认到了那天每一步都有着落。","当机动位，哪块临时少人就过去接一下。","布置一个能让来的人自在待着、轻松聊天的角落。"],
+  m:["yin","seng","wu","sha","long","jie"]}
+];
+
+<script>
+var LETTERS = ["A","B","C","D","E","F"];
+var idx = 0;
+var answers = [];
+var locked = false;
+var lastResult = null;
+
+function $(id){ return document.getElementById(id); }
+function show(id){
+  ["screen-start","screen-quiz","screen-result"].forEach(function(s){
+    $(s).classList.toggle("hidden", s !== id);
   });
-  $("btnBack").style.visibility = idx===0 ? "hidden":"visible";
-  $("btnBack").disabled = idx===0;
-  $("qtext").focus({preventScroll:true});
+  window.scrollTo(0,0);
 }
-function compute(){
-  const counts={}; ORDER.forEach(r=>counts[r]=0);
-  answers.forEach(r=>{ if(r) counts[r]++; });
-  const max=Math.max(...ORDER.map(r=>counts[r]));
-  const tied=ORDER.filter(r=>counts[r]===max);
-  let winner=tied[0], sub=null;
-  if(tied.length>1){
-    const q12=answers[11];
-    if(q12 && tied.includes(q12)) winner=q12;
-    sub=tied.find(r=>r!==winner);
+
+function render(){
+  var q = QUESTIONS[idx];
+  $("q-count").textContent = "第 " + (idx+1) + " / 12 题";
+  $("q-bar").style.width = ((idx+1)/12*100) + "%";
+  $("q-text").textContent = q.t;
+  var box = $("q-opts");
+  box.innerHTML = "";
+  q.o.forEach(function(text, i){
+    var d = document.createElement("div");
+    d.className = "opt" + (answers[idx] === i ? " sel" : "");
+    var k = document.createElement("span");
+    k.className = "k"; k.textContent = LETTERS[i];
+    var s = document.createElement("span");
+    s.textContent = text;
+    d.appendChild(k); d.appendChild(s);
+    d.addEventListener("click", function(){ pick(i, d); });
+    box.appendChild(d);
+  });
+  $("btn-back").classList.toggle("hidden", idx === 0);
+}
+
+function pick(i, el){
+  if (locked) return;
+  locked = true;
+  answers[idx] = i;
+  var opts = $("q-opts").children;
+  for (var j = 0; j < opts.length; j++) opts[j].classList.toggle("sel", j === i);
+  setTimeout(function(){
+    locked = false;
+    if (idx < 11) { idx++; render(); }
+    else { compute(); }
+  }, 240);
+}
+
+function lastQ(role, ans){
+  for (var q = 11; q >= 0; q--){
+    if (QUESTIONS[q].m[ans[q]] === role) return q;
   }
-  return {counts,winner,sub,max};
+  return -1;
 }
-let lastCard=null;
-function showResult(){
-  const c=compute();
-  const r=ROLES[c.winner];
-  lastCard={r,sub:c.sub?ROLES[c.sub]:null,counts:c.counts};
-  $("rname").textContent=r.name+" · "+r.type;
-  $("rquote").textContent="“"+r.quote+"”";
-  $("rsub").textContent = c.sub ? ("副型："+ROLES[c.sub].name+" · "+ROLES[c.sub].type+"——你身上也有它的一面。") : "";
-  $("rsub").style.display = c.sub ? "" : "none";
-  $("rtags").innerHTML=r.tags.map(t=>"<span>"+t+"</span>").join("");
-  $("rscore").innerHTML=ORDER.map(k=>{
-    const v=c.counts[k];
-    return '<div class="scorerow"><div class="sl">'+ROLES[k].name+'</div><div class="st"><i style="width:'+Math.round(v/12*100)+'%"></i></div><div class="sv">'+v+'</div></div>';
-  }).join("");
-  $("rbase").textContent=r.base;
-  $("rstyle").textContent=r.style;
-  $("rstrength").textContent=r.strength;
-  $("rpit").textContent=r.pit;
-  $("rmatch").textContent=r.match;
-  $("rword").textContent=r.word;
+
+function compute(){
+  var scores = {wu:0, jie:0, sha:0, seng:0, long:0, yin:0};
+  answers.forEach(function(a, q){ scores[QUESTIONS[q].m[a]]++; });
+  var max = 0;
+  ORDER.forEach(function(r){ if (scores[r] > max) max = scores[r]; });
+  var tied = ORDER.filter(function(r){ return scores[r] === max; });
+  var main = tied[0];
+  if (tied.length > 1){
+    for (var q = 11; q >= 0; q--){
+      var role = QUESTIONS[q].m[answers[q]];
+      if (tied.indexOf(role) >= 0) { main = role; break; }
+    }
+  }
+  var others = tied.filter(function(r){ return r !== main; });
+  others.sort(function(a, b){ return lastQ(b, answers) - lastQ(a, answers); });
+
+  /* 答题回放：主角色对应的已选答案，优先第 1、4、7、9 题里最靠后的 */
+  var mine = [];
+  answers.forEach(function(a, q){ if (QUESTIONS[q].m[a] === main) mine.push(q); });
+  var pref = mine.filter(function(q){ return [0,3,6,8].indexOf(q) >= 0; });
+  var rq = (pref.length ? pref : mine)[(pref.length ? pref : mine).length - 1];
+  var replay = "第 " + (rq+1) + " 题，你选了『" + QUESTIONS[rq].o[answers[rq]] + "』";
+
+  var R = ROLES[main];
+  lastResult = {main: main, scores: scores};
+  $("r-name").textContent = R.name;
+  $("r-sub").textContent = R.sub;
+  $("r-lead").textContent = R.lead;
+  $("r-replay").textContent = replay;
+  $("r-scoreline").textContent = "12 题中，有 " + scores[main] + " 次选中了对应「" + R.name + "」的做法。";
+  if (tied.length > 1){
+    var names = others.map(function(r){ return ROLES[r].name; }).join("、");
+    $("r-tie").textContent = "这次有 " + tied.length + " 个角色并列最高，每个角色对应的做法都选了 " + max + " 次。" +
+      (names ? "另外并列的还有：" + names + "。" : "");
+    $("r-tie").classList.remove("hidden");
+  } else {
+    $("r-tie").classList.add("hidden");
+  }
+  $("r-p1").textContent = R.p1;
+  $("r-p2").textContent = R.p2;
+  $("r-quote").textContent = R.quote;
+  var sb = $("r-scores");
+  sb.innerHTML = "";
+  ORDER.forEach(function(r){
+    var row = document.createElement("div");
+    row.className = "srow" + (r === main ? " me" : "");
+    row.innerHTML = "";
+    var nm = document.createElement("span"); nm.className = "nm"; nm.textContent = ROLES[r].name;
+    var tr = document.createElement("span"); tr.className = "tr";
+    var fill = document.createElement("div"); fill.style.width = (scores[r]/12*100) + "%";
+    tr.appendChild(fill);
+    var ct = document.createElement("span"); ct.className = "ct"; ct.textContent = scores[r];
+    row.appendChild(nm); row.appendChild(tr); row.appendChild(ct);
+    sb.appendChild(row);
+  });
   show("screen-result");
 }
-function wrap(ctx,text,x,y,maxW,lh){let line="",yy=y;for(const ch of text){if(ctx.measureText(line+ch).width>maxW&&line){ctx.fillText(line,x,yy);line=ch;yy+=lh;}else{line+=ch;}}ctx.fillText(line,x,yy);return yy;}
-function makeCard(){
-  const r=lastCard.r; const cv=$("cv"); const ctx=cv.getContext("2d");
-  const g=ctx.createLinearGradient(0,0,0,1440); g.addColorStop(0,"#16233f"); g.addColorStop(0.55,"#0e1a33"); g.addColorStop(1,"#0a1428");
-  ctx.fillStyle=g; ctx.fillRect(0,0,1080,1440);
-  ctx.strokeStyle="#d4af37"; ctx.lineWidth=6; ctx.strokeRect(36,36,1008,1368);
-  ctx.fillStyle="#d4af37"; ctx.beginPath(); ctx.arc(880,190,260,0,7); ctx.globalAlpha=.10; ctx.fill(); ctx.beginPath(); ctx.arc(140,1270,210,0,7); ctx.globalAlpha=.08; ctx.fill(); ctx.globalAlpha=1;
-  ctx.fillStyle="#e8c96a"; ctx.font="600 40px sans-serif"; ctx.fillText("🐵 你是西游记里的哪一位",90,190);
-  ctx.fillStyle="#9fb0d0"; ctx.font="34px sans-serif"; ctx.fillText("12 道题 · 趣味测试结果卡",90,250);
-  const ng=ctx.createLinearGradient(90,0,990,0); ng.addColorStop(0,"#e8c96a"); ng.addColorStop(1,"#d4af37"); ctx.fillStyle=ng; ctx.font="bold 112px serif"; wrap(ctx,r.name+" · "+r.type,90,470,900,135);
-  ctx.fillStyle="#f5ead0"; ctx.font="44px sans-serif"; wrap(ctx,"“"+r.quote+"”",90,650,880,64);
-  ctx.font="600 38px sans-serif"; ctx.fillStyle="#e8c96a"; ctx.fillText(r.tags.map(t=>"# "+t).join("   "),90,860);
-  ctx.fillStyle="#f5ead0"; ctx.font="38px sans-serif"; wrap(ctx,r.word,90,980,880,58);
-  ctx.fillStyle="#9fb0d0"; ctx.font="30px sans-serif";
-  if(lastCard.sub) ctx.fillText("副型："+lastCard.sub.name+" · "+lastCard.sub.type,90,1200);
-  ctx.fillText("趣味娱乐测试 · 非专业心理测评 · 仅供自我探索参考",90,1255);
-  ctx.fillText("测测你是哪一位，截图分享给朋友",90,1330);
-  $("cardImg").src=cv.toDataURL("image/png");
-  shareReturnFocus=document.activeElement;
-  $("cardModal").classList.remove("hidden");
-  document.body.style.overflow="hidden";
-  $("btnDownloadCard").focus();
-}
-function closeCard(){
-  $("cardModal").classList.add("hidden"); document.body.style.overflow="";
-  if(shareReturnFocus && shareReturnFocus.focus) shareReturnFocus.focus();
-}
-async function downloadCard(){
-  if(!lastCard)return;
-  const a=document.createElement("a"); a.href=$("cardImg").src; a.download="我的西游测试结果.png"; a.click();
-}
-async function shareCard(){
-  if(!lastCard)return;
-  try{
-    const blob=await (await fetch($("cardImg").src)).blob();
-    const file=new File([blob],"我的西游测试结果.png",{type:"image/png"});
-    if(navigator.canShare && navigator.canShare({files:[file]})){
-      await navigator.share({title:"我的西游测试结果",text:"我测出是西游记里的："+lastCard.r.name,files:[file]});
-      return;
-    }
-  }catch(e){ if(e.name==="AbortError")return; }
-  await downloadCard(); $("shareHint").textContent="此浏览器暂不支持直接分享，结果图片已开始下载。";
-}
-$("btnStart").onclick=()=>{idx=0;answers.length=0;show("screen-quiz");renderQ();};
-$("btnBack").onclick=()=>{if(idx>0&&!answerLocked){idx--;renderQ();}};
-$("btnAgain").onclick=()=>{idx=0;answers.length=0;show("screen-quiz");renderQ();};
-$("btnCard").onclick=makeCard;
-$("btnDownloadCard").onclick=downloadCard;
-$("btnShareCard").onclick=shareCard;
-$("btnCloseCard").onclick=closeCard;
-$("cardModal").addEventListener("click",e=>{if(e.target===$("cardModal"))closeCard();});
-document.addEventListener("keydown",e=>{const modal=$("cardModal");if(modal.classList.contains("hidden"))return;if(e.key==="Escape"){closeCard();return;}if(e.key==="Tab"){const items=[...modal.querySelectorAll("button")];const first=items[0],last=items[items.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
+
+$("btn-start").addEventListener("click", function(){
+  idx = 0; answers = [];
+  show("screen-quiz");
+  render();
+});
+$("btn-back").addEventListener("click", function(){
+  if (idx > 0) { idx--; render(); }
+});
+$("btn-again").addEventListener("click", function(){
+  idx = 0; answers = [];
+  show("screen-start");
+});
+$("btn-share").addEventListener("click", function(){
+  if (!lastResult) return;
+  var R = ROLES[lastResult.main];
+  var text = "我测出来更像《西游记》里的" + R.name + "——" + R.sub + "。" + R.quote;
+  var url = location.href;
+  if (navigator.share) {
+    navigator.share({title: document.title, text: text, url: url}).catch(function(){});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(text + " " + url).then(function(){
+      var b = $("btn-share");
+      b.textContent = "已复制，去粘贴分享吧";
+      setTimeout(function(){ b.textContent = "分享结果"; }, 2000);
+    }).catch(function(){});
+  }
+});
 </script>
 </body>
 </html>
